@@ -47,6 +47,7 @@ public class Backrooms
         MDItemsRegistry.ITEMS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::addCreative);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -84,6 +85,17 @@ public class Backrooms
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        }
+    }
+
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(MDBlocksRegistry.YELLOWWALL);
+            event.accept(MDBlocksRegistry.YELLOWWALL_STAIRS);
+            event.accept(MDBlocksRegistry.YELLOWWALL_SLAB);
+            event.accept(MDBlocksRegistry.YELLOWCARPET);
+            event.accept(MDBlocksRegistry.YELLOWCEILING);
+            event.accept(MDBlocksRegistry.LIGHT);
         }
     }
 }
