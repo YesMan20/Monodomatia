@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "md:block/yellowwall_slab"
+    },
+    "type=double": {
+      "model": "md:block/yellowwall"
+    },
+    "type=top": {
+      "model": "md:block/yellowwall_slab_top"
+    }
+  }
+}
