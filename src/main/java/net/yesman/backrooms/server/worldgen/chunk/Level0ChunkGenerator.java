@@ -58,11 +58,11 @@ public class Level0ChunkGenerator extends ChunkGenerator {
         int chunkZ = pChunk.getPos().getRegionZ();
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                pChunk.setBlockState(new BlockPos(chunkX + x, 10, chunkZ + z), MDBlocksRegistry.YELLOWCARPET.get().defaultBlockState(), false);
-
-                /* First gotta do the walls
-                pChunk.setBlockState(new BlockPos(chunkX + x, 14, chunkZ + z), MDBlocksRegistry.YELLOWCEILING.get().defaultBlockState(), false);
-                pChunk.setBlockState(new BlockPos(chunkX + 8, 14, chunkZ + 8), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);*/
+                for (int i = 3; i > 0; i--) {
+                    pChunk.setBlockState(new BlockPos(chunkX + x, 10 - i, chunkZ + z), MDBlocksRegistry.YELLOWCARPET.get().defaultBlockState(), false);
+                    //pChunk.setBlockState(new BlockPos(chunkX + x, 13 + i, chunkZ + z), MDBlocksRegistry.YELLOWCEILING.get().defaultBlockState(), false);
+                    //pChunk.setBlockState(new BlockPos(chunkX + 8, 14, chunkZ + 8), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                }
             }
         }
         return CompletableFuture.completedFuture(pChunk);

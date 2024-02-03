@@ -20,8 +20,8 @@ public class ForgeEventListener {
         DamageSource source = event.getSource();
         if (entity instanceof Player player && source.is(DamageTypes.IN_WALL)) {
             RandomSource random = RandomSource.create();
-            if (player.level().dimension() != MDDimensionsRegistry.LEVEL_0 && random.nextInt(5) == 1) {
-                ((ServerPlayer)player).teleportTo(player.getServer().getLevel(MDDimensionsRegistry.LEVEL_0), player.getX(), player.getY(), player.getZ(), player.getYRot(), player.getXRot());
+            if (player.level().dimension() != MDDimensionsRegistry.LEVEL_0 && random.nextInt(4) == 1) {
+                ((ServerPlayer)player).teleportTo(player.getServer().getLevel(MDDimensionsRegistry.LEVEL_0), player.getX(), 11, player.getZ(), player.getYRot(), player.getXRot());
             }
         }
     }
