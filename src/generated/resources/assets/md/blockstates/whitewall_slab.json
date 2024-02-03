@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "md:block/whitewall_slab"
+    },
+    "type=double": {
+      "model": "md:block/whitewall"
+    },
+    "type=top": {
+      "model": "md:block/whitewall_slab_top"
+    }
+  }
+}

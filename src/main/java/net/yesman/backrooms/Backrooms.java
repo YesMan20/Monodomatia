@@ -95,7 +95,18 @@ public class Backrooms
             event.accept(MDBlocksRegistry.YELLOWWALL_SLAB);
             event.accept(MDBlocksRegistry.YELLOWCARPET);
             event.accept(MDBlocksRegistry.YELLOWCEILING);
+
             event.accept(MDBlocksRegistry.LIGHT);
+
+            event.accept(MDBlocksRegistry.WHITEWALL);
+            event.accept(MDBlocksRegistry.WHITEWALL_STAIRS);
+            event.accept(MDBlocksRegistry.WHITEWALL_SLAB);
+            event.accept(MDBlocksRegistry.BROWNFLOOR);
+            event.accept(MDBlocksRegistry.WHITECEILING);
+
+            event.accept(MDBlocksRegistry.PALEWALL);
+            event.accept(MDBlocksRegistry.PALEWALL_STAIRS);
+            event.accept(MDBlocksRegistry.PALEWALL_SLAB);
         }
     }
 }

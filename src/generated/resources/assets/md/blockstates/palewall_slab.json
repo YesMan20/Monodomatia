@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "md:block/palewall_slab"
+    },
+    "type=double": {
+      "model": "md:block/palewall"
+    },
+    "type=top": {
+      "model": "md:block/palewall_slab_top"
+    }
+  }
+}

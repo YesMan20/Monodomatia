@@ -16,6 +16,34 @@ import java.util.function.Supplier;
 public class MDBlocksRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Backrooms.MODID);
 
+    public static final RegistryObject<Block> PALEWALL = registerBlock("palewall", () ->
+            new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOD).explosionResistance(1000000000000000f).strength(10000000000000f).destroyTime(10000000000000f)));
+
+    public static final RegistryObject<Block> PALEWALL_STAIRS = registerBlock("palewall_stairs", () ->
+            new StairBlock(() -> MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(),
+                    BlockBehaviour.Properties.of().sound(SoundType.WOOD).explosionResistance(1000000000000000f).strength(10000000000000f).destroyTime(10000000000000f)));
+
+    public static final RegistryObject<Block> PALEWALL_SLAB = registerBlock("palewall_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).explosionResistance(1000000000000000f).strength(10000000000000f).destroyTime(10000000000000f)));
+
+
+    public static final RegistryObject<Block> WHITEWALL = registerBlock("whitewall", () ->
+            new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOD).explosionResistance(1000000000000000f).strength(10000000000000f).destroyTime(10000000000000f)));
+
+    public static final RegistryObject<Block> WHITECEILING = registerBlock("whiteceiling", () ->
+            new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).explosionResistance(1000000000000000f).strength(10000000000000f).destroyTime(10000000000000f)));
+
+    public static final RegistryObject<Block> BROWNFLOOR = registerBlock("brownfloor", () ->
+            new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOD).explosionResistance(1000000000000000f).strength(10000000000000f).destroyTime(10000000000000f)));
+
+    public static final RegistryObject<Block> WHITEWALL_STAIRS = registerBlock("whitewall_stairs", () ->
+            new StairBlock(() -> MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(),
+                    BlockBehaviour.Properties.of().sound(SoundType.WOOD).explosionResistance(1000000000000000f).strength(10000000000000f).destroyTime(10000000000000f)));
+
+    public static final RegistryObject<Block> WHITEWALL_SLAB = registerBlock("whitewall_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).explosionResistance(1000000000000000f).strength(10000000000000f).destroyTime(10000000000000f)));
+
+
     public static final RegistryObject<Block> YELLOWWALL = registerBlock("yellowwall", () ->
             new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOD).explosionResistance(1000000000000000f).strength(10000000000000f).destroyTime(10000000000000f)));
 

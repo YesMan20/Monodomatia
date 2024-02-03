@@ -19,17 +19,23 @@ public class MDBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        blockWithItem(MDBlocksRegistry.PALEWALL);
+        slabBlock(MDBlocksRegistry.PALEWALL_SLAB, MDBlocksRegistry.PALEWALL);
+        stairBlock(MDBlocksRegistry.PALEWALL_STAIRS, MDBlocksRegistry.PALEWALL);
+
         blockWithItem(MDBlocksRegistry.LIGHT);
 
         blockWithItem(MDBlocksRegistry.YELLOWCEILING);
-
         blockWithItem(MDBlocksRegistry.YELLOWCARPET);
-
         blockWithItem(MDBlocksRegistry.YELLOWWALL);
-
         slabBlock(MDBlocksRegistry.YELLOWWALL_SLAB, MDBlocksRegistry.YELLOWWALL);
-
         stairBlock(MDBlocksRegistry.YELLOWWALL_STAIRS, MDBlocksRegistry.YELLOWWALL);
+
+        blockWithItem(MDBlocksRegistry.WHITECEILING);
+        blockWithItem(MDBlocksRegistry.BROWNFLOOR);
+        blockWithItem(MDBlocksRegistry.WHITEWALL);
+        slabBlock(MDBlocksRegistry.WHITEWALL_SLAB, MDBlocksRegistry.WHITEWALL);
+        stairBlock(MDBlocksRegistry.WHITEWALL_STAIRS, MDBlocksRegistry.WHITEWALL);
 
         //horizontalBlockWithItem(MDBlocksRegistry.CONTAINMENT_CASE);
     }

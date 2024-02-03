@@ -1,5 +1,13 @@
 {
+  "block.md.brownfloor": "Brown Floor",
   "block.md.light": "Yellow Light",
+  "block.md.palewall": "Pale Wall",
+  "block.md.palewall_slab": "Pale Wall Slab",
+  "block.md.palewall_stairs": "Pale Wall Stairs",
+  "block.md.whiteceiling": "White Ceiling",
+  "block.md.whitewall": "White Wall",
+  "block.md.whitewall_slab": "White Wall Slab",
+  "block.md.whitewall_stairs": "White Wall Stairs",
   "block.md.yellowcarpet": "Yellow Carpet",
   "block.md.yellowceiling": "Yellow Ceiling",
   "block.md.yellowwall": "Yellow Wall",

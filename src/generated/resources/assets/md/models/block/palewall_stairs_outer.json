@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "md:block/palewall",
+    "side": "md:block/palewall",
+    "top": "md:block/palewall"
+  }
+}
