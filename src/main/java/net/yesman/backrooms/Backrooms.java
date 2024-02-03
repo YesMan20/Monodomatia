@@ -12,6 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.yesman.backrooms.server.blocks.MDBlocksRegistry;
 import net.yesman.backrooms.server.items.MDItemsRegistry;
+import net.yesman.backrooms.server.worldgen.MDChunkGeneratorsRegistry;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -25,6 +26,7 @@ public class Backrooms {
 
         MDBlocksRegistry.BLOCKS.register(modEventBus);
         MDItemsRegistry.ITEMS.register(modEventBus);
+        MDChunkGeneratorsRegistry.CHUNK_GENERATORS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
