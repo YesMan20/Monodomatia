@@ -12,22 +12,22 @@ public class MDLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add(MDBlocksRegistry.PALEWALL.get(), "Pale Wall");
-        add(MDBlocksRegistry.PALEWALL_STAIRS.get(), "Pale Wall Stairs");
-        add(MDBlocksRegistry.PALEWALL_SLAB.get(), "Pale Wall Slab");
+        addBlock(MDBlocksRegistry.PALEWALL, "Pale Wallpaper");
+        addBlock(MDBlocksRegistry.PALEWALL_STAIRS, "Pale Wallpaper Stairs");
+        addBlock(MDBlocksRegistry.PALEWALL_SLAB, "Pale Wallpaper Slab");
 
-        add(MDBlocksRegistry.WHITEWALL.get(), "White Wall");
-        add(MDBlocksRegistry.WHITEWALL_STAIRS.get(), "White Wall Stairs");
-        add(MDBlocksRegistry.WHITEWALL_SLAB.get(), "White Wall Slab");
-        add(MDBlocksRegistry.BROWNFLOOR.get(), "Brown Floor");
-        add(MDBlocksRegistry.WHITECEILING.get(), "White Ceiling");
+        addBlock(MDBlocksRegistry.WHITEWALL, "White Wallpaper");
+        addBlock(MDBlocksRegistry.WHITEWALL_STAIRS, "White Wallpaper Stairs");
+        addBlock(MDBlocksRegistry.WHITEWALL_SLAB, "White Wallpaper Slab");
+        addBlock(MDBlocksRegistry.BROWNFLOOR, "Brown Floor");
+        addBlock(MDBlocksRegistry.WHITECEILING, "White Ceiling");
 
-        add(MDBlocksRegistry.YELLOWWALL.get(), "Yellow Wall");
-        add(MDBlocksRegistry.YELLOWWALL_STAIRS.get(), "Yellow Wall Stairs");
-        add(MDBlocksRegistry.YELLOWWALL_SLAB.get(), "Yellow Wall Slab");
-        add(MDBlocksRegistry.YELLOWCARPET.get(), "Yellow Carpet");
-        add(MDBlocksRegistry.YELLOWCEILING.get(), "Yellow Ceiling");
+        addBlock(MDBlocksRegistry.YELLOWWALL, "Yellow Wallpaper");
+        addBlock(MDBlocksRegistry.YELLOWWALL_STAIRS, "Yellow Wallpaper Stairs");
+        addBlock(MDBlocksRegistry.YELLOWWALL_SLAB, "Yellow Wallpaper Slab");
+        addBlock(MDBlocksRegistry.YELLOWCARPET, "Yellow Stained Carpet");
+        addBlock(MDBlocksRegistry.YELLOWCEILING, "Tiled Ceiling");
 
-        add(MDBlocksRegistry.LIGHT.get(), "Yellow Light");
+        addBlock(MDBlocksRegistry.LIGHT, "Ceiling Light");
     }
 }

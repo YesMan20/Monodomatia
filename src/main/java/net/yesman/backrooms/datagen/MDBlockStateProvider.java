@@ -36,8 +36,6 @@ public class MDBlockStateProvider extends BlockStateProvider {
         blockWithItem(MDBlocksRegistry.WHITEWALL);
         slabBlock(MDBlocksRegistry.WHITEWALL_SLAB, MDBlocksRegistry.WHITEWALL);
         stairBlock(MDBlocksRegistry.WHITEWALL_STAIRS, MDBlocksRegistry.WHITEWALL);
-
-        //horizontalBlockWithItem(MDBlocksRegistry.CONTAINMENT_CASE);
     }
 
     private void horizontalBlockWithItem(RegistryObject<Block> blockRegistryObject) {

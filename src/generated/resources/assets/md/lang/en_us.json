@@ -1,16 +1,16 @@
 {
   "block.md.brownfloor": "Brown Floor",
-  "block.md.light": "Yellow Light",
-  "block.md.palewall": "Pale Wall",
-  "block.md.palewall_slab": "Pale Wall Slab",
-  "block.md.palewall_stairs": "Pale Wall Stairs",
+  "block.md.light": "Ceiling Light",
+  "block.md.palewall": "Pale Wallpaper",
+  "block.md.palewall_slab": "Pale Wallpaper Slab",
+  "block.md.palewall_stairs": "Pale Wallpaper Stairs",
   "block.md.whiteceiling": "White Ceiling",
-  "block.md.whitewall": "White Wall",
-  "block.md.whitewall_slab": "White Wall Slab",
-  "block.md.whitewall_stairs": "White Wall Stairs",
-  "block.md.yellowcarpet": "Yellow Carpet",
-  "block.md.yellowceiling": "Yellow Ceiling",
-  "block.md.yellowwall": "Yellow Wall",
-  "block.md.yellowwall_slab": "Yellow Wall Slab",
-  "block.md.yellowwall_stairs": "Yellow Wall Stairs"
+  "block.md.whitewall": "White Wallpaper",
+  "block.md.whitewall_slab": "White Wallpaper Slab",
+  "block.md.whitewall_stairs": "White Wallpaper Stairs",
+  "block.md.yellowcarpet": "Yellow Stained Carpet",
+  "block.md.yellowceiling": "Tiled Ceiling",
+  "block.md.yellowwall": "Yellow Wallpaper",
+  "block.md.yellowwall_slab": "Yellow Wallpaper Slab",
+  "block.md.yellowwall_stairs": "Yellow Wallpaper Stairs"
 }

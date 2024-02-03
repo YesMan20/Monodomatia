@@ -15,7 +15,6 @@ public class MDItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        //simpleItem(WAItemsRegistry.ORANGE);
     }
 
     private void simpleItem(RegistryObject<Item> item) {
