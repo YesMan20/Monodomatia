@@ -1,5 +1,5 @@
 {
-  "block.md.brownfloor": "Brown Floor",
+  "block.md.brownfloor": "Desaturated Dark Planks",
   "block.md.light": "Ceiling Light",
   "block.md.palewall": "Pale Wallpaper",
   "block.md.palewall_slab": "Pale Wallpaper Slab",
@@ -9,8 +9,9 @@
   "block.md.whitewall_slab": "White Wallpaper Slab",
   "block.md.whitewall_stairs": "White Wallpaper Stairs",
   "block.md.yellowcarpet": "Yellow Stained Carpet",
-  "block.md.yellowceiling": "Tiled Ceiling",
+  "block.md.yellowceiling": "Ceiling Tile",
   "block.md.yellowwall": "Yellow Wallpaper",
   "block.md.yellowwall_slab": "Yellow Wallpaper Slab",
-  "block.md.yellowwall_stairs": "Yellow Wallpaper Stairs"
+  "block.md.yellowwall_stairs": "Yellow Wallpaper Stairs",
+  "subtitles.ambient.level_0.buzzing": "Fluorescent buzzing"
 }

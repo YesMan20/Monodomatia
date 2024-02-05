@@ -20,8 +20,9 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(true, new MDLanguageProvider(packOutput));
         generator.addProvider(true, new MDItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(true, new MDBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(true, new MDLanguageProvider(packOutput));
+        generator.addProvider(true, new MDSoundProvider(packOutput, existingFileHelper));
     }
 }

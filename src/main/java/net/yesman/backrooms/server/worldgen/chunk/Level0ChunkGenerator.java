@@ -4,11 +4,13 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -49,7 +51,7 @@ public class Level0ChunkGenerator extends ChunkGenerator {
 
     @Override
     public int getGenDepth() {
-        return 384;
+        return 256;
     }
 
     @Override
@@ -58,18 +60,77 @@ public class Level0ChunkGenerator extends ChunkGenerator {
         int chunkZ = pChunk.getPos().getRegionZ();
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                for (int i = 3; i > 0; i--) {
-                    pChunk.setBlockState(new BlockPos(chunkX + x, 10 - i, chunkZ + z), MDBlocksRegistry.YELLOWCARPET.get().defaultBlockState(), false);
-                    pChunk.setBlockState(new BlockPos(chunkX + x, 13 + i, chunkZ + z), MDBlocksRegistry.YELLOWCEILING.get().defaultBlockState(), false);
-                    pChunk.setBlockState(new BlockPos(chunkX + 8, 14, chunkZ + 7), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                    pChunk.setBlockState(new BlockPos(chunkX + 7, 14, chunkZ + 8), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                    pChunk.setBlockState(new BlockPos(chunkX + 8, 14, chunkZ + 8), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                    pChunk.setBlockState(new BlockPos(chunkX + 7, 14, chunkZ + 7), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                for (int y = 3; y > 0; y--) {
+                    pChunk.setBlockState(new BlockPos(chunkX + x, 10 - y, chunkZ + z), MDBlocksRegistry.YELLOWCARPET.get().defaultBlockState(), false);
+                    pChunk.setBlockState(new BlockPos(chunkX + x, 13 + y, chunkZ + z), MDBlocksRegistry.YELLOWCEILING.get().defaultBlockState(), false);
 
-                    pChunk.setBlockState(new BlockPos(chunkX, 14, chunkZ), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                    pChunk.setBlockState(new BlockPos(chunkX + 15, 14, chunkZ), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                    pChunk.setBlockState(new BlockPos(chunkX + 15, 14, chunkZ + 15), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                    pChunk.setBlockState(new BlockPos(chunkX, 14, chunkZ + 15), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                    // Generates a 4 block square ceiling light in the middle, and then adds 4 lights on each corner
+                    pChunk.setBlockState(new BlockPos(chunkX + 8, 13 + y, chunkZ + 7), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                    pChunk.setBlockState(new BlockPos(chunkX + 9, 13 + y, chunkZ + 8), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                    pChunk.setBlockState(new BlockPos(chunkX + 8, 13 + y, chunkZ + 8), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                    pChunk.setBlockState(new BlockPos(chunkX + 9, 13 + y, chunkZ + 7), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                    pChunk.setBlockState(new BlockPos(chunkX + 2, 13 + y, chunkZ + 3), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                    pChunk.setBlockState(new BlockPos(chunkX + 2, 13 + y, chunkZ + 14), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                    pChunk.setBlockState(new BlockPos(chunkX + 13, 13 + y, chunkZ + 3), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                    pChunk.setBlockState(new BlockPos(chunkX + 13, 13 + y, chunkZ + 14), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                }
+            }
+        }
+
+        // Wall generation
+        // uses a maze algorithm called recursive division to generate the walls
+        // it starts off with an empty 16x16 (the size of a chunk) room
+
+        RandomSource random = RandomSource.create();
+        for (int x = 0; x < 16; x++) {
+            for (int z = 0; z < 16; z++) {
+                for (int y = 0; y < 4; y++) {
+                    pChunk.setBlockState(new BlockPos(chunkX + x, 10 + y, chunkZ), MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(), false);
+                    pChunk.setBlockState(new BlockPos(chunkX, 10 + y, chunkZ + z), MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(), false);
+                }
+            }
+        }
+
+        // we then randomly add in 4 gaps on each side of the empty room
+        int gapX = random.nextInt(3, 13);
+        int gapZ = random.nextInt(3, 13);
+        int maxGapSizeA = random.nextBoolean() ? 2 : 3;
+        for (int i = 0; i < maxGapSizeA; i++) {
+            for (int y = 0; y < 4; y++) {
+                pChunk.setBlockState(new BlockPos(chunkX + gapX + i, 10 + y, chunkZ), Blocks.AIR.defaultBlockState(), false);
+                pChunk.setBlockState(new BlockPos(chunkX, 10 + y, chunkZ + gapZ + i), Blocks.AIR.defaultBlockState(), false);
+            }
+        }
+
+        // then we divide the room into 2 pieces either horizontally or vertically by placing wallpaper blocks by choosing a random x or z position
+        // then we simply place a gap between the blocks that divide the room, then we repeat this several times, and tada, a randomized room
+
+        for (int a = 0; a < 3; a++) {
+            int randX = random.nextInt(3, 13);
+            int randZ = random.nextInt(3, 13);
+            int targetX = random.nextInt(3, 13);
+            int targetZ = random.nextInt(3, 13);
+            int maxGapSizeB = random.nextBoolean() ? 1 : 2;
+
+            if (random.nextBoolean()) {
+                for (int z = 0; z < 16; z++) {
+                    for (int y = 0; y < 4; y++) {
+                        if (z < targetX || z > targetX + maxGapSizeB) {
+                            pChunk.setBlockState(new BlockPos(chunkX + randX, 10 + y, chunkZ + z), MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(), false);
+                        } else {
+                            pChunk.setBlockState(new BlockPos(chunkX + randX, 10 + y, chunkZ + z), Blocks.AIR.defaultBlockState(), false);
+                        }
+                    }
+                }
+            } else {
+                for (int x = 0; x < 16; x++) {
+                    for (int y = 0; y < 4; y++) {
+                        if (x < targetZ || x > targetZ + maxGapSizeB) {
+                            pChunk.setBlockState(new BlockPos(chunkX + x, 10 + y, chunkZ + randZ), MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(), false);
+                        } else {
+                            pChunk.setBlockState(new BlockPos(chunkX + x, 10 + y, chunkZ + randZ), Blocks.AIR.defaultBlockState(), false);
+                        }
+                    }
                 }
             }
         }

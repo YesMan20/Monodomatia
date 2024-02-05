@@ -5,13 +5,12 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.yesman.backrooms.server.blocks.MDBlocksRegistry;
 import net.yesman.backrooms.server.items.MDItemsRegistry;
+import net.yesman.backrooms.server.misc.MDSoundsRegistry;
 import net.yesman.backrooms.server.worldgen.MDChunkGeneratorsRegistry;
 import org.slf4j.Logger;
 
@@ -26,14 +25,13 @@ public class Backrooms {
 
         MDBlocksRegistry.BLOCKS.register(modEventBus);
         MDItemsRegistry.ITEMS.register(modEventBus);
+        MDSoundsRegistry.SOUND_EVENTS.register(modEventBus);
         MDChunkGeneratorsRegistry.CHUNK_GENERATORS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
 
         MinecraftForge.EVENT_BUS.register(this);
-
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
     }
 

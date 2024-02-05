@@ -1,0 +1,7 @@
+{
+  "ambient.level_0.buzzing": {
+    "sounds": [
+      "md:ambient/fluorescent_buzzing"
+    ]
+  }
+}
