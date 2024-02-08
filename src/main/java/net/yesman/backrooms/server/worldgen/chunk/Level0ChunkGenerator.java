@@ -69,18 +69,18 @@ public class Level0ChunkGenerator extends ChunkGenerator {
             for (int x = 0; x < 16; x++) {
                 for (int z = 0; z < 16; z++) {
                     for (int y = 2; y > 0; y--) {
-                        pChunk.setBlockState(new BlockPos(chunkX + x, 10 - y, chunkZ + z), MDBlocksRegistry.YELLOWCARPET.get().defaultBlockState(), false);
-                        pChunk.setBlockState(new BlockPos(chunkX + x, 13 + y, chunkZ + z), MDBlocksRegistry.YELLOWCEILING.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + x, 10 - y, chunkZ + z), MDBlocksRegistry.YELLOW_STAINED_CARPET.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + x, 13 + y, chunkZ + z), MDBlocksRegistry.CEILING_TILE.get().defaultBlockState(), false);
 
                         // Generates a 4 block square ceiling light in the middle, and then adds 4 lights on each corner
-                        pChunk.setBlockState(new BlockPos(chunkX + 8, 13 + y, chunkZ + 7), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                        pChunk.setBlockState(new BlockPos(chunkX + 9, 13 + y, chunkZ + 8), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                        pChunk.setBlockState(new BlockPos(chunkX + 8, 13 + y, chunkZ + 8), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                        pChunk.setBlockState(new BlockPos(chunkX + 9, 13 + y, chunkZ + 7), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                        pChunk.setBlockState(new BlockPos(chunkX + 2, 13 + y, chunkZ + 3), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                        pChunk.setBlockState(new BlockPos(chunkX + 2, 13 + y, chunkZ + 14), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                        pChunk.setBlockState(new BlockPos(chunkX + 13, 13 + y, chunkZ + 3), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
-                        pChunk.setBlockState(new BlockPos(chunkX + 13, 13 + y, chunkZ + 14), MDBlocksRegistry.LIGHT.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + 8, 13 + y, chunkZ + 7), MDBlocksRegistry.CEILING_LIGHT.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + 9, 13 + y, chunkZ + 8), MDBlocksRegistry.CEILING_LIGHT.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + 8, 13 + y, chunkZ + 8), MDBlocksRegistry.CEILING_LIGHT.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + 9, 13 + y, chunkZ + 7), MDBlocksRegistry.CEILING_LIGHT.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + 2, 13 + y, chunkZ + 3), MDBlocksRegistry.CEILING_LIGHT.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + 2, 13 + y, chunkZ + 14), MDBlocksRegistry.CEILING_LIGHT.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + 13, 13 + y, chunkZ + 3), MDBlocksRegistry.CEILING_LIGHT.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + 13, 13 + y, chunkZ + 14), MDBlocksRegistry.CEILING_LIGHT.get().defaultBlockState(), false);
                     }
                 }
             }
@@ -93,8 +93,8 @@ public class Level0ChunkGenerator extends ChunkGenerator {
             for (int x = 0; x < 16; x++) {
                 for (int z = 0; z < 16; z++) {
                     for (int y = 0; y < 4; y++) {
-                        pChunk.setBlockState(new BlockPos(chunkX + x, 10 + y, chunkZ), MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(), false);
-                        pChunk.setBlockState(new BlockPos(chunkX, 10 + y, chunkZ + z), MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX + x, 10 + y, chunkZ), MDBlocksRegistry.YELLOW_WALLPAPER.get().defaultBlockState(), false);
+                        pChunk.setBlockState(new BlockPos(chunkX, 10 + y, chunkZ + z), MDBlocksRegistry.YELLOW_WALLPAPER.get().defaultBlockState(), false);
                     }
                 }
             }
@@ -124,7 +124,7 @@ public class Level0ChunkGenerator extends ChunkGenerator {
                     for (int z = 0; z < 16; z++) {
                         for (int y = 0; y < 4; y++) {
                             if (z < targetX || z > targetX + maxGapSizeB) {
-                                pChunk.setBlockState(new BlockPos(chunkX + randX, 10 + y, chunkZ + z), MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(), false);
+                                pChunk.setBlockState(new BlockPos(chunkX + randX, 10 + y, chunkZ + z), MDBlocksRegistry.YELLOW_WALLPAPER.get().defaultBlockState(), false);
                             } else {
                                 pChunk.setBlockState(new BlockPos(chunkX + randX, 10 + y, chunkZ + z), Blocks.AIR.defaultBlockState(), false);
                             }
@@ -134,7 +134,7 @@ public class Level0ChunkGenerator extends ChunkGenerator {
                     for (int x = 0; x < 16; x++) {
                         for (int y = 0; y < 4; y++) {
                             if (x < targetZ || x > targetZ + maxGapSizeB) {
-                                pChunk.setBlockState(new BlockPos(chunkX + x, 10 + y, chunkZ + randZ), MDBlocksRegistry.YELLOWWALL.get().defaultBlockState(), false);
+                                pChunk.setBlockState(new BlockPos(chunkX + x, 10 + y, chunkZ + randZ), MDBlocksRegistry.YELLOW_WALLPAPER.get().defaultBlockState(), false);
                             } else {
                                 pChunk.setBlockState(new BlockPos(chunkX + x, 10 + y, chunkZ + randZ), Blocks.AIR.defaultBlockState(), false);
                             }

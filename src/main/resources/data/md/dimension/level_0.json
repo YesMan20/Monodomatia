@@ -4,8 +4,12 @@
     "type": "md:level_0_generator",
     "settings": "md:base_level",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "md:yellow_halls"
+      "type": "minecraft:checkerboard",
+      "scale": 6,
+      "biomes": [
+        "md:yellow_halls",
+        "md:towering_halls"
+      ]
     }
   }
 }

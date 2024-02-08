@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "md:block/pale_wallpaper",
+    "side": "md:block/pale_wallpaper",
+    "top": "md:block/pale_wallpaper"
+  }
+}

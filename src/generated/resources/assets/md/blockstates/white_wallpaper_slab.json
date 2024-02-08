@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "md:block/white_wallpaper_slab"
+    },
+    "type=double": {
+      "model": "md:block/white_wallpaper"
+    },
+    "type=top": {
+      "model": "md:block/white_wallpaper_slab_top"
+    }
+  }
+}

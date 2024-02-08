@@ -16,27 +16,31 @@ public class MDLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         // Blocks
-        addBlock(MDBlocksRegistry.PALEWALL, "Pale Wallpaper");
-        addBlock(MDBlocksRegistry.PALEWALL_STAIRS, "Pale Wallpaper Stairs");
-        addBlock(MDBlocksRegistry.PALEWALL_SLAB, "Pale Wallpaper Slab");
+        addBlock(MDBlocksRegistry.PALE_WALLPAPER, "Pale Wallpaper");
+        addBlock(MDBlocksRegistry.PALE_WALLPAPER_STAIRS, "Pale Wallpaper Stairs");
+        addBlock(MDBlocksRegistry.PALE_WALLPAPER_SLAB, "Pale Wallpaper Slab");
 
-        addBlock(MDBlocksRegistry.WHITEWALL, "White Wallpaper");
-        addBlock(MDBlocksRegistry.WHITEWALL_STAIRS, "White Wallpaper Stairs");
-        addBlock(MDBlocksRegistry.WHITEWALL_SLAB, "White Wallpaper Slab");
-        addBlock(MDBlocksRegistry.BROWNFLOOR, "Desaturated Dark Planks");
-        addBlock(MDBlocksRegistry.WHITECEILING, "White Ceiling");
+        addBlock(MDBlocksRegistry.WHITE_WALLPAPER, "White Wallpaper");
+        addBlock(MDBlocksRegistry.WHITE_WALLPAPER_STAIRS, "White Wallpaper Stairs");
+        addBlock(MDBlocksRegistry.WHITE_WALLPAPER_SLAB, "White Wallpaper Slab");
+        addBlock(MDBlocksRegistry.DESATURATED_DARK_PLANKS, "Desaturated Dark Planks");
+        addBlock(MDBlocksRegistry.WHITE_CEILING, "White Ceiling");
 
-        addBlock(MDBlocksRegistry.YELLOWWALL, "Yellow Wallpaper");
-        addBlock(MDBlocksRegistry.YELLOWWALL_STAIRS, "Yellow Wallpaper Stairs");
-        addBlock(MDBlocksRegistry.YELLOWWALL_SLAB, "Yellow Wallpaper Slab");
-        addBlock(MDBlocksRegistry.YELLOWCARPET, "Yellow Stained Carpet");
-        addBlock(MDBlocksRegistry.YELLOWCEILING, "Ceiling Tile");
+        addBlock(MDBlocksRegistry.YELLOW_WALLPAPER, "Yellow Wallpaper");
+        addBlock(MDBlocksRegistry.YELLOW_WALLPAPER_STAIRS, "Yellow Wallpaper Stairs");
+        addBlock(MDBlocksRegistry.YELLOW_WALLPAPER_SLAB, "Yellow Wallpaper Slab");
+        addBlock(MDBlocksRegistry.YELLOW_STAINED_CARPET, "Yellow Stained Carpet");
+        addBlock(MDBlocksRegistry.CEILING_TILE, "Ceiling Tile");
 
-        addBlock(MDBlocksRegistry.LIGHT, "Ceiling Light");
+        addBlock(MDBlocksRegistry.CEILING_LIGHT, "Ceiling Light");
 
 
         // Subtitles
         addSubtitle(MDSoundsRegistry.LEVEL_0_AMBIENT, "Fluorescent buzzing");
+
+
+        // Misc
+        add("itemGroup.backrooms", "Monodomatia");
     }
 
     private void addSubtitle(RegistryObject<SoundEvent> key, String value) {

@@ -1,15 +1,14 @@
 package net.yesman.backrooms;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.yesman.backrooms.server.blocks.MDBlocksRegistry;
 import net.yesman.backrooms.server.items.MDItemsRegistry;
+import net.yesman.backrooms.server.misc.MDCreativeTabsRegistry;
 import net.yesman.backrooms.server.misc.MDSoundsRegistry;
 import net.yesman.backrooms.server.worldgen.MDChunkGeneratorsRegistry;
 import org.slf4j.Logger;
@@ -24,39 +23,17 @@ public class Backrooms {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         MDBlocksRegistry.BLOCKS.register(modEventBus);
+        MDChunkGeneratorsRegistry.CHUNK_GENERATORS.register(modEventBus);
+        MDCreativeTabsRegistry.CREATIVE_TABS.register(modEventBus);
         MDItemsRegistry.ITEMS.register(modEventBus);
         MDSoundsRegistry.SOUND_EVENTS.register(modEventBus);
-        MDChunkGeneratorsRegistry.CHUNK_GENERATORS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::addCreative);
 
         MinecraftForge.EVENT_BUS.register(this);
 
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(MDBlocksRegistry.YELLOWWALL);
-            event.accept(MDBlocksRegistry.YELLOWWALL_STAIRS);
-            event.accept(MDBlocksRegistry.YELLOWWALL_SLAB);
-            event.accept(MDBlocksRegistry.YELLOWCARPET);
-            event.accept(MDBlocksRegistry.YELLOWCEILING);
-
-            event.accept(MDBlocksRegistry.LIGHT);
-
-            event.accept(MDBlocksRegistry.WHITEWALL);
-            event.accept(MDBlocksRegistry.WHITEWALL_STAIRS);
-            event.accept(MDBlocksRegistry.WHITEWALL_SLAB);
-            event.accept(MDBlocksRegistry.BROWNFLOOR);
-            event.accept(MDBlocksRegistry.WHITECEILING);
-
-            event.accept(MDBlocksRegistry.PALEWALL);
-            event.accept(MDBlocksRegistry.PALEWALL_STAIRS);
-            event.accept(MDBlocksRegistry.PALEWALL_SLAB);
-        }
     }
 }
